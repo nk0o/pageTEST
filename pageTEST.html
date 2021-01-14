@@ -1,0 +1,420 @@
+
+<!doctype html>
+<html class="no-js" lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, min-width=320, max-width=1920">
+    <title>Dr.ato 페이지 연습</title>
+    <meta name="description" content="닥터아토 태지크림 페이지">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="icon" href="favicon.ico">
+     <!--Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/drato.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/main.css">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script src="js/denizen.js"></script>
+    <script src="js/autotrack.js"></script>
+    <script src="js/main.js"></script>
+    <style>
+        *{
+            border: 1px solid red;
+        }
+        header {
+            width: 100%;
+            border: 3px solid black;
+        }
+        section {
+            width: 100%;
+        }
+        .vdo {
+            height: 360px;
+            background: #004815;
+            border: none;
+        }
+        .vdo .wrapper {
+            max-width: 1920px;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .vdo .wrapper .wrap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background: #fff;
+            border-top: 8px solid #d4e624;
+            -webkit-box-shadow: 10px 10px 37px 0px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 10px 10px 37px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 10px 10px 37px 0px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            width: 100%;
+            max-width: 1122px;
+            height: 130%;
+            max-height: 468px;
+            display:flex;
+        }
+        .vdo .wrap .text {
+            display: flex;
+            flex-direction: column;
+            padding: 56px;
+        }
+        .vdo .wrap .text img{
+            width:35%;
+            }
+        .vdo .wrap .mov {
+            width: 100%;
+            height: 100%;
+            padding: 50px;
+        }
+        .vdo .wrap .mov iframe{
+            width: 100%;
+            height: 100%;
+        }
+        @media screen and (max-width:960px){
+            .vdo .wrapper .wrap {
+                flex-direction: column;
+            }
+            .vdo .wrap .mov {
+                padding:0;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
+        href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!--[if lt IE 9]>
+<script>
+  document.createElement("article");
+  document.createElement("aside");
+  document.createElement("footer");
+  document.createElement("header");
+  document.createElement("hgroup");
+  document.createElement("nav");
+  document.createElement("section");
+  document.createElement("time");
+</script>
+<noscript>
+  여러분이 사용하고 계신 브라우저는 HTML5를 지원하지 않기 때문에 몇몇 요소가 제대로 보이도록 JScript를 사용하고 있습니다.
+  하지만 여러분의 브라우저 설정에서 스크립트 기능이 꺼져있으므로, 현재 페이지를 제대로 확인하시려면 스크립트 기능을 켜주셔야 합니다.
+</noscript>
+<![endif]-->
+
+<!-- pop up -->
+<div class="popup" id="popup" style="display:none">
+    <div id="p_blog" class="content content_blog center" style="display:none;">
+        <div class="title">
+            <p><span class="user"></span><span class="date"></span></p>
+            <p class="rev_title"></p>
+        </div>
+        <div class="rev_detail">
+            <div class="pic">
+                <img src="" alt="이미지 자료">
+            </div>
+            <p></p>
+        </div>
+        <button class="close" onclick='closePop()'><img src="img/common/cancel_btn.png" alt="닫기버튼"></button>
+    </div>
+
+    <div id="p_insta" class="content content_insta center" style="display:none;">
+        <div class="title">
+        </div>
+        <div class="rev_detail">
+            <div class="swiper-container swiper4">
+                <div class="swiper-wrapper"></div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="instaPop_info"></div>
+        </div>
+        <button class="close" onclick='closePop()'><img src="img/common/cancel_btn.png" alt="닫기버튼"></button>
+    </div>
+
+    <div id="p_comment" class="content content_comment center" style="display:none;">
+        <div class="title">
+            <img src="img/review/msmPopLogo.png" alt="" style="float:left;">
+            <div style="float:left;">
+                <div class="scoreWrap">
+                    <p class="score">
+
+                    </p>
+                </div>
+                <p><span class="user">asdf***</span><span class="date">2019.03.30</span></p>
+            </div>
+        </div>
+        <div class="rev_detail">
+            <div class="swiper-container swiper5">
+                <div class="swiper-wrapper"></div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <p>text</p>
+
+        </div>
+        <button id="close_btn" class="close" onclick="closePop()"><img src="img/common/cancel_btn.png" alt="닫기버튼">
+        </button>
+    </div>
+</div>
+
+<!-- header banner -->
+<header>
+    <div class="wrapper">
+        <h1 class="logo"><img src="#" alt="닥터아토 로고"></h1>
+        <div class="swiper-container swiper1 banner">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <picture>
+                        <source media="(max-width: 959px)" srcset="images/m_banner_02.png">
+                        <source media="(min-width: 960px)" srcset="images/banner02.png">
+                        <img src="images/banner02.png" alt="배너1" style="display: block; width: 100%; margin: 0 auto;">
+                    </picture>
+                </div>
+                <div class="swiper-slide">
+                    <picture>
+                        <source media="(max-width: 959px)" srcset="images/m_banner_02.png">
+                        <source media="(min-width: 960px)" srcset="images/banner02.png">
+                        <img src="images/banner02.png" alt="배너2" style="display: block; width: 100%; margin: 0 auto;">
+                    </picture>
+                </div>
+                <div class="swiper-slide">
+                    <picture>
+                        <source media="(max-width: 959px)" srcset="images/m_banner_02.png">
+                        <source media="(min-width: 960px)" srcset="images/banner02.png">
+                        <img src="images/banner02.png" alt="배너3" style="display: block; width: 100%; margin: 0 auto;">
+                    </picture>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</header>
+
+<section class="vdo">
+    <div class="wrapper">
+        <div class="wrap">
+            <div class="text">
+                <img src="http://placehold.it/90x30?text=sample" alt="닥터아토 로고">
+                <h2>
+                    <img src="img/mov/mov_title.png" alt="닥터아토가 찾았다">
+                    <img src="img/mobile/m_mov_title.png" alt="닥터아토가 찾았다">
+                </h2>
+                <p>안전하면서도 <br>가장 태지를 닮은 <br><strong>태지 유사성분</strong> <strong>BM-Simulipids&#153;</strong><br>로
+                    만든<strong>태지크림</strong> 닥터아토</p>
+                <p>안전하면서도 가장 태지를 닮은 <br><strong>태지 유사성분</strong> <strong>BM-Simulipids&#153;</strong>로 만든
+                    <strong>태지크림</strong> 닥터아토</p>
+            </div>
+            <div class="mov"> 
+                <iframe class="center" src="https://www.youtube.com/embed/UP5ZVFgHguU" frameborder="0" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="review">
+    <div class="wrapper">
+        <h2>
+            <img src="#" alt="닥터아토 로고">
+            <p class="rev_title"><img src="http://placehold.it/90x30?text=sample" alt="태초보습 지킴후기"></p>
+            <p class="text">먼저 써본 고객님들의 어메이징한 사용 후기를 보실 수 있습니다</p>
+        </h2>
+
+        <div class="blog">
+            <div class="title">
+                <img src="img/review/blogLogo.png" alt="" style="margin-left:2vw; margin-bottom:0.4vw;">
+                <img src="img/mobile/m_blogLogo.png" alt=""
+                     style="width:32.7vw;display:block;margin:7vw auto 5vw;">
+            </div>
+            <div class="swiper-container swiper2">
+                <div class="swiper-wrapper"></div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+        </div>
+
+        <div class="instagram">
+            <div class="part2">
+                <img src="img/review/instaLogo.png" alt=""
+                     style="width:2.2vw;height:2.2vw;vertical-align: middle;margin:0 0.2vw 0.8vw 0;">
+                <span><img src="img/review/insta_tag01.png" alt="태초크림 해시태그" style="width:10%"></span>
+                <span><img src="img/review/insta_tag02.png" alt="태초보습 해시태그" style="width:10%"></span>
+                <span><img src="img/review/insta_tag03.png" alt="닥터아토357 해시태그" style="width:14.2%"></span>
+            </div>
+            <div class="swiper-container swiper3">
+                <div class="swiper-wrapper"></div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <div class="comment">
+            <img src="img/review/momsmomLogo.png" alt="" style="margin-left:2vw;">
+            <div class="part"></div>
+            <button class="btn" id="more" ga-on="click" ga-event-category="more-review" ga-event-action="click">
+                <img src="img/review/review_comment_btn.png" alt="리뷰 더보기 버튼">
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="product">
+    <div class="wrapper">
+        <img src="img/product/product_img.png" alt="제품정보">
+        <button class="btn center" ga-on="click" ga-event-category="purchase" ga-event-action="click">
+            <img src="img/product/product_btn.png" alt="제품 구매하러가기 버튼">
+        </button>
+    </div>
+</section>
+
+
+<section class="about">
+    <div class="wrapper">
+        <div class="wrap">
+            <p class="logo"><img src="img/about/about_logo.png" alt="닥터아토 로고"></p>
+            <div class="text">
+                <p>메디앙스</p>
+                <h2>
+                    <p><span>40년</span> 간의 </p>
+                    <p><span>유아화장품 개발 노하우</span>를 담았습니다.</p>
+                </h2>
+                <p>'닥터아토(Dr.ato)’는 알러지 및 민감성 피부를 위한 <br>단계별, 기능별 맞춤 솔루션을 제공하는 브랜드입니다. <br>엄격한 임상의과학적 검증을 통해 화학성분을 최소화하여
+                    <br>안심하고 믿을 수 있는 케어 솔루션을 제공해드립니다.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="awards">
+    <div class="wrapper">
+        <h2>
+            <img src="img/awards/award_title.png" alt="수상내역">
+        </h2>
+        <div>
+            <img src="img/awards/aw_content1.png" alt="20년간 저자극 민감성 스킨케어만을 구준히 연구해 온 닥터아토, 한국의 가장 사랑받는 브랜드 대상 6차례 수상">
+            <img src="img/awards/aw_content2.png" alt="2000년도 첫 론칭 이후 변함없이 사랑받아 온 신뢰할 수 있는 브랜드, 닥터아토">
+        </div>
+        <div>
+            <img src="img/mobile/m_aw_content1.png" alt="20년간 저자극 민감성 스킨케어만을 구준히 연구해 온 닥터아토, 한국의 가장 사랑받는 브랜드 대상 6차례 수상">
+            <img src="img/mobile/m_aw_content2.png" alt="2000년도 첫 론칭 이후 변함없이 사랑받아 온 신뢰할 수 있는 브랜드, 닥터아토">
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrapper">
+        <div>
+            <img src="img/footer/Medience_NEW.png" alt="보령 메디앙스 로고">
+        </div>
+        <div>
+            <p>
+                <span>서울 강남구 논현로 64길 4 (메디앙스401빌딩) 5,6층</span>
+                <span>대표이사 김은정</span>
+                <span>개인정보관리책임자 권민경(mkkwon@medience.co.kr)</span>
+            </p>
+            <p>
+                <span>호스팅사업자 (주)코리아센터</span>
+                <span>사업자등록번호 208-81-03973</span>
+                <span>통신판매업신고 제01-112호</span>
+            </p>
+            <p>
+                <span>고객만족센터 080-023-6363</span>
+                <span>상담시간 : 평일 오전9시-오후6시</span>
+                <span>점심시간 : 평일 오전12시-오후1시</span>
+            </p>
+            <p class="copyright">
+                <span>COPYRIGHT @ BY MEDIENCE, ALL RIGHT RESERVED.</span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    $(document).ready(function () {
+
+        var banner = new Swiper('.swiper-container',{
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },            
+        });
+
+
+        $('header').css('background-color', '#C9C1B5');
+        banner.on('autoplay', function () {
+            var bannerIdx = $('.swiper1').find('.swiper-slide-active').index();
+
+            if (bannerIdx === 0) {
+                $('header').css('background-color', '#C9C1B5');
+            } else if (bannerIdx === 1) {
+                $('header').css('background-color', '#FFF9EB');
+            } else {
+                $('header').css('background-color', '#E6E8EE');
+            }
+        });
+
+        $('.banner .swiper-pagination-bullet').on('click', function () {
+            var thisIdx = $(this).index();
+
+            if (thisIdx === 0) {
+                $('header').css('background-color', '#C9C1B5');
+            } else if (thisIdx === 1) {
+                $('header').css('background-color', '#FFF9EB');
+            } else {
+                $('header').css('background-color', '#E6E8EE');
+            }
+        });
+
+    });
+
+
+</script>
+</body>
+
+</html>
